@@ -1,0 +1,1 @@
+// Will proposals with same propose data have same id. Since the id is the hash of the data.
