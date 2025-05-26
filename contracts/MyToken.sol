@@ -9,12 +9,12 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyToken is ERC20, Ownable, ERC20Permit, ERC20Votes {
-    constructor(address recipient, address initialOwner)
+    constructor()
         ERC20("MyToken", "MTK")
-        Ownable(initialOwner)
+        Ownable(msg.sender)
         ERC20Permit("MyToken")
     {
-        _mint(recipient, 150 * 10 ** decimals());
+        _mint(msg.sender, 150 * 10 ** decimals());
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
